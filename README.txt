@@ -1,1 +1,1 @@
-v4: plic mai mare; la apăsare se mărește, se deschide, scrisoarea iese mult în sus, rămâne vizibilă puțin, apoi apare site-ul.
+v6: corecție pentru telefon. Clapeta plicului se deschide cu animație 2D compatibilă iPhone/Android, apoi iese scrisoarea.

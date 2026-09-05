@@ -124,10 +124,12 @@ a{color:inherit;text-decoration:none}
   height:48%;
   background:linear-gradient(180deg,#f2d9d4,#e4beb7);
   clip-path:polygon(0 0,100% 0,50% 100%);
-  transform-origin:top center;
+  transform-origin:50% 0%;
   z-index:6;
-  transition:transform .85s cubic-bezier(.2,.8,.2,1),z-index 0s linear .42s;
-  backface-visibility:hidden;
+  transition:
+    transform .78s cubic-bezier(.2,.8,.2,1),
+    opacity .3s ease .58s;
+  will-change:transform,opacity;
 }
 .env-front{
   position:absolute;
@@ -228,8 +230,9 @@ a{color:inherit;text-decoration:none}
   transform:translate(-50%,-50%) scale(.3) rotate(-18deg);
 }
 .envelope-button.opened .env-flap{
-  transform:rotateX(180deg);
-  z-index:0;
+  transform:translateY(-58%) scaleY(-0.96);
+  opacity:.98;
+  z-index:1;
 }
 .envelope-button.opened .letter-card{
   transform:translateY(-74%) scale(1.05);
@@ -494,5 +497,59 @@ footer{
     animation:none!important;
     transition:none!important;
     scroll-behavior:auto!important;
+  }
+}
+
+
+/* Mobile envelope opening fix */
+.envelope-button,
+.envelope-wrap{
+  -webkit-transform-style:preserve-3d;
+  transform-style:preserve-3d;
+}
+
+@media(max-width:600px){
+  .envelope-button{
+    width:min(430px,96vw);
+    aspect-ratio:1.22;
+    overflow:visible;
+  }
+
+  .envelope-wrap{
+    overflow:visible;
+  }
+
+  .env-back,
+  .env-front{
+    inset:18% 2% 2% 2%;
+  }
+
+  .env-flap{
+    top:18%;
+    height:50%;
+    transform-origin:50% 0%;
+  }
+
+  .envelope-button.opened .env-flap{
+    transform:translateY(-62%) scaleY(-1);
+    opacity:1;
+  }
+
+  .letter-card{
+    top:26%;
+    height:70%;
+    transform:translateY(52%) scale(.94);
+  }
+
+  .envelope-button.opened .letter-card{
+    transform:translateY(-72%) scale(1.03);
+  }
+
+  .envelope-button.reading .letter-card{
+    transform:translateY(-80%) scale(1.06);
+  }
+
+  .wax-seal{
+    top:57%;
   }
 }
