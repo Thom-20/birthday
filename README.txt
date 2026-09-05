@@ -1,1 +1,1 @@
-v14: corectate în cod colțurile superioare încercuite ale plicului și făcut fontul mai închis atât pe intro, cât și pe pagina care apare după deschidere.
+v15 mobile-first: text made visibly darker on iPhone and after intro; top-left/top-right envelope corners rebuilt so they are visibly rounded, while keeping the approved mobile animation and half-raised letter.

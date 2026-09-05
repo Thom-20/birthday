@@ -657,3 +657,100 @@ footer{
     border-radius:30px 30px 20px 20px !important;
   }
 }
+
+
+/* v15 — PRIORITY: iPhone/mobile visual correction */
+@media (max-width: 600px) {
+  /* Darker typography, matching the screenshot target */
+  body,
+  .envelope-intro,
+  .site-content {
+    color:#171111 !important;
+  }
+
+  .intro-copy h1,
+  .hero-card h1,
+  .hero-subtitle,
+  .section-heading h2,
+  .section-heading h3,
+  .letter-card h2,
+  .final-letter h3 {
+    color:#171111 !important;
+  }
+
+  .intro-small,
+  .eyebrow {
+    color:#751e29 !important;
+  }
+
+  .tap-label,
+  .intro-bottom,
+  .hero-note,
+  .muted,
+  .small-label,
+  .photo-caption,
+  .counter span {
+    color:#403332 !important;
+  }
+
+  /*
+    The old top corners were created by the triangular front layers.
+    Move those triangle tips inward so the rounded envelope body remains
+    visible at both upper corners.
+  */
+  .env-front {
+    overflow:hidden !important;
+    border-radius:34px !important;
+    clip-path:none !important;
+  }
+
+  .env-left {
+    clip-path:polygon(
+      0 12%,
+      7% 4%,
+      52% 54%,
+      0 100%
+    ) !important;
+  }
+
+  .env-right {
+    clip-path:polygon(
+      100% 12%,
+      93% 4%,
+      48% 54%,
+      100% 100%
+    ) !important;
+  }
+
+  .env-bottom {
+    clip-path:polygon(0 100%,50% 49%,100% 100%) !important;
+  }
+
+  .env-back {
+    border-radius:34px !important;
+  }
+
+  /* The top flap itself */
+  .env-flap {
+    left:4% !important;
+    right:4% !important;
+    width:auto !important;
+    border-radius:32px 32px 22px 22px !important;
+    clip-path:polygon(
+      3% 0,
+      97% 0,
+      50% 100%
+    ) !important;
+  }
+
+  /* Preserve the animation the user already approved */
+  .envelope-button.opened .env-flap,
+  .envelope-button.reading .env-flap {
+    transform:translateY(-68%) scaleY(-1) !important;
+  }
+
+  .envelope-button.opened .letter-card,
+  .envelope-button.reading .letter-card {
+    transform:translateY(-48%) !important;
+  }
+}
