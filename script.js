@@ -58,22 +58,54 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
 
-// Final birthday card envelope
+// Final birthday card envelope — auto-scroll so the animation stays visible on phone
 const lastEnvelope = document.getElementById("lastEnvelope");
 const birthdayCardFinal = document.getElementById("birthdayCardFinal");
+
 if (lastEnvelope && birthdayCardFinal) {
   let finalOpened = false;
+
   lastEnvelope.addEventListener("click", () => {
     if (finalOpened) return;
     finalOpened = true;
+
+    // Open the envelope immediately.
     lastEnvelope.classList.add("open");
 
-    // Let the card visibly rise from the envelope first.
+    // As the card begins to rise, move the viewport down so the lower half
+    // of the envelope and the emerging card remain visible.
+    setTimeout(() => {
+      const rect = lastEnvelope.getBoundingClientRect();
+      const targetTop =
+        window.scrollY +
+        rect.top +
+        rect.height * 0.33 -
+        window.innerHeight * 0.22;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: "smooth"
+      });
+    }, 360);
+
+    // Reveal the full birthday card.
     setTimeout(() => {
       birthdayCardFinal.classList.add("show");
+
+      // After it expands, scroll again to place the greeting comfortably
+      // inside the phone viewport.
       setTimeout(() => {
-        birthdayCardFinal.scrollIntoView({behavior:"smooth", block:"center"});
-      }, 180);
-    }, 1100);
+        const cardRect = birthdayCardFinal.getBoundingClientRect();
+        const targetTop =
+          window.scrollY +
+          cardRect.top -
+          Math.max(26, window.innerHeight * 0.08);
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "smooth"
+        });
+      }, 420);
+    }, 1200);
   });
 }
