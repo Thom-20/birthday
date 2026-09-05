@@ -1,94 +1,90 @@
-const startDate = new Date(2025, 2, 22); // March = 2
+const intro = document.getElementById("envelopeIntro");
+const envelopeButton = document.getElementById("envelopeButton");
+const site = document.getElementById("siteContent");
 
-function updateRelationshipCounter() {
+let opening = false;
+
+envelopeButton.addEventListener("click", () => {
+  if (opening) return;
+  opening = true;
+
+  envelopeButton.classList.add("opened");
+
+  setTimeout(() => {
+    intro.classList.add("finished");
+    site.classList.add("show");
+    site.setAttribute("aria-hidden", "false");
+    document.body.classList.remove("intro-open");
+  }, 1550);
+});
+
+const startDate = new Date(2025, 2, 22);
+
+function updateCounter() {
   const now = new Date();
 
-  let years = now.getFullYear() - startDate.getFullYear();
-  let months = now.getMonth() - startDate.getMonth();
-  let days = now.getDate() - startDate.getDate();
+  let y = now.getFullYear() - startDate.getFullYear();
+  let m = now.getMonth() - startDate.getMonth();
+  let d = now.getDate() - startDate.getDate();
 
-  if (days < 0) {
-    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-    days += prevMonth.getDate();
-    months--;
-  }
-  if (months < 0) {
-    months += 12;
-    years--;
+  if (d < 0) {
+    d += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+    m--;
   }
 
-  document.getElementById("years").textContent = years;
-  document.getElementById("months").textContent = months;
-  document.getElementById("days").textContent = days;
+  if (m < 0) {
+    m += 12;
+    y--;
+  }
+
+  document.getElementById("years").textContent = y;
+  document.getElementById("months").textContent = m;
+  document.getElementById("days").textContent = d;
 }
 
-updateRelationshipCounter();
+updateCounter();
 
-const placeholderReasons = [
-  "Reason #1 — we’ll personalize this.",
-  "Reason #2 — we’ll personalize this.",
-  "Reason #3 — we’ll personalize this.",
-  "Reason #4 — we’ll personalize this.",
-  "Reason #5 — we’ll personalize this.",
-  "Reason #6 — we’ll personalize this.",
-  "Reason #7 — we’ll personalize this.",
-  "Reason #8 — we’ll personalize this.",
-  "Reason #9 — we’ll personalize this.",
-  "Reason #10 — we’ll personalize this.",
-  "Reason #11 — we’ll personalize this.",
-  "Reason #12 — we’ll personalize this.",
-  "Reason #13 — we’ll personalize this.",
-  "Reason #14 — we’ll personalize this.",
-  "Reason #15 — we’ll personalize this.",
-  "Reason #16 — we’ll personalize this.",
-  "Reason #17 — we’ll personalize this.",
-  "Reason #18 — we’ll personalize this.",
-  "Reason #19 — we’ll personalize this.",
-  "Reason #20 — we’ll personalize this.",
-  "Reason #21 — we’ll personalize this.",
-  "Reason #22 — we’ll personalize this.",
-  "Reason #23 — we’ll personalize this.",
-  "Reason #24 — the most special one."
-];
+const grid = document.getElementById("heartGrid");
 
-const heartGrid = document.getElementById("heartGrid");
+for (let i = 1; i <= 24; i++) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "heart-btn reveal";
+  b.textContent = String(i).padStart(2, "0") + " ♡";
 
-placeholderReasons.forEach((reason, index) => {
-  const btn = document.createElement("button");
-  btn.className = "heart-btn reveal";
-  btn.innerHTML = `${String(index + 1).padStart(2, "0")} ♡`;
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("open");
-    btn.textContent = btn.classList.contains("open")
-      ? reason
-      : `${String(index + 1).padStart(2, "0")} ♡`;
+  b.addEventListener("click", () => {
+    b.classList.toggle("open");
+    b.textContent = b.classList.contains("open")
+      ? `Reason #${i} — we’ll personalize this.`
+      : String(i).padStart(2, "0") + " ♡";
   });
-  heartGrid.appendChild(btn);
-});
+
+  grid.appendChild(b);
+}
 
 const giftBtn = document.getElementById("giftBtn");
 const giftMessage = document.getElementById("giftMessage");
 
 giftBtn.addEventListener("click", () => {
   giftBtn.classList.toggle("open");
-  setTimeout(() => giftMessage.classList.add("show"), 350);
+  setTimeout(() => giftMessage.classList.add("show"), 300);
 });
 
-const envelopeBtn = document.getElementById("envelopeBtn");
+const finalEnvelopeBtn = document.getElementById("finalEnvelopeBtn");
 const finalLetter = document.getElementById("finalLetter");
 
-envelopeBtn.addEventListener("click", () => {
-  envelopeBtn.classList.add("open");
-  setTimeout(() => finalLetter.classList.add("show"), 500);
+finalEnvelopeBtn.addEventListener("click", () => {
+  finalEnvelopeBtn.classList.add("open");
+  setTimeout(() => finalLetter.classList.add("show"), 450);
 });
 
-const observer = new IntersectionObserver((entries) => {
+const obs = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+      obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: .12 });
 
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
