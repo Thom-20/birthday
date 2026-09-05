@@ -1,1 +1,1 @@
-v11: pe telefon, foaia iese doar pe jumătate din plic și se oprește acolo. Fără zoom. Desktopul rămâne neschimbat.
+v12: aceeași animație ca v11, cu colțurile scrisorii și ale plicului mai rotunjite.
