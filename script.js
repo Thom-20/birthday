@@ -11,15 +11,11 @@ envelopeButton.addEventListener("click", () => {
   envelopeButton.classList.add("opened");
 
   setTimeout(() => {
-    envelopeButton.classList.add("reading");
-  }, 950);
-
-  setTimeout(() => {
     intro.classList.add("finished");
     site.classList.add("show");
     site.setAttribute("aria-hidden", "false");
     document.body.classList.remove("intro-open");
-  }, 2300);
+  }, 1550);
 });
 
 const startDate = new Date(2025, 2, 22);

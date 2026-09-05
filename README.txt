@@ -1,1 +1,1 @@
-v8: eliminat complet zoom-ul scrisorii. Foaia albă iese doar în sus, păstrând aceeași dimensiune.
+Versiunea v3: ecran de intrare cu plic animat. Apasă pe plic -> sigiliul dispare -> clapeta se deschide -> scrisoarea iese -> apare site-ul.
