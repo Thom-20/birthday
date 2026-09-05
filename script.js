@@ -1,102 +1,79 @@
-const intro = document.getElementById("envelopeIntro");
+const opening = document.getElementById("opening");
 const envelopeButton = document.getElementById("envelopeButton");
-const site = document.getElementById("siteContent");
+const experience = document.getElementById("experience");
+const finalLetterButton = document.getElementById("finalLetterButton");
+const loveLetter = document.getElementById("loveLetter");
 
-let opening = false;
+let hasOpened = false;
 
-envelopeButton.addEventListener("click", () => {
-  if (opening) return;
-  opening = true;
+function openEnvelope() {
+  if (hasOpened) return;
+  hasOpened = true;
 
-  // 1. Sigiliul dispare
-  envelopeButton.classList.add("seal-open");
+  envelopeButton.classList.add("open");
 
-  // 2. Clapeta se ridică, fără zoom
+  // Keep the "For You!" card visible for a moment before entering the story.
   setTimeout(() => {
-    envelopeButton.classList.add("flap-open");
-  }, 180);
+    opening.classList.add("finished");
+    experience.classList.add("show");
+    experience.setAttribute("aria-hidden", "false");
+    document.body.classList.remove("locked");
 
-  // 3. Scrisoarea iese drept în sus, la aceeași dimensiune
-  setTimeout(() => {
-    envelopeButton.classList.add("letter-out");
-  }, 720);
-
-  // 4. Intră în pagina principală
-  setTimeout(() => {
-    intro.classList.add("finished");
-    site.classList.add("show");
-    site.setAttribute("aria-hidden", "false");
-    document.body.classList.remove("intro-open");
-  }, 1950);
-});
-
-const startDate = new Date(2025, 2, 22);
-
-function updateCounter() {
-  const now = new Date();
-
-  let y = now.getFullYear() - startDate.getFullYear();
-  let m = now.getMonth() - startDate.getMonth();
-  let d = now.getDate() - startDate.getDate();
-
-  if (d < 0) {
-    d += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-    m--;
-  }
-
-  if (m < 0) {
-    m += 12;
-    y--;
-  }
-
-  document.getElementById("years").textContent = y;
-  document.getElementById("months").textContent = m;
-  document.getElementById("days").textContent = d;
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, 2700);
 }
 
-updateCounter();
+envelopeButton.addEventListener("click", openEnvelope);
 
-const grid = document.getElementById("heartGrid");
-
-for (let i = 1; i <= 24; i++) {
-  const b = document.createElement("button");
-  b.type = "button";
-  b.className = "heart-btn reveal";
-  b.textContent = String(i).padStart(2, "0") + " ♡";
-
-  b.addEventListener("click", () => {
-    b.classList.toggle("open");
-    b.textContent = b.classList.contains("open")
-      ? `Reason #${i} — we’ll personalize this.`
-      : String(i).padStart(2, "0") + " ♡";
+document.querySelectorAll("[data-next]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector(button.dataset.next);
+    if (target) target.scrollIntoView({ behavior: "smooth" });
   });
+});
 
-  grid.appendChild(b);
+document.querySelectorAll(".reason-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("open");
+  });
+});
+
+if (finalLetterButton && loveLetter) {
+  finalLetterButton.addEventListener("click", () => {
+    loveLetter.classList.add("show");
+    finalLetterButton.style.display = "none";
+    setTimeout(() => loveLetter.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
+  });
 }
 
-const giftBtn = document.getElementById("giftBtn");
-const giftMessage = document.getElementById("giftMessage");
-
-giftBtn.addEventListener("click", () => {
-  giftBtn.classList.toggle("open");
-  setTimeout(() => giftMessage.classList.add("show"), 300);
-});
-
-const finalEnvelopeBtn = document.getElementById("finalEnvelopeBtn");
-const finalLetter = document.getElementById("finalLetter");
-
-finalEnvelopeBtn.addEventListener("click", () => {
-  finalEnvelopeBtn.classList.add("open");
-  setTimeout(() => finalLetter.classList.add("show"), 450);
-});
-
-const obs = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      obs.unobserve(entry.target);
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: .12 });
+}, { threshold: 0.16 });
 
-document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+
+// Final birthday card envelope
+const lastEnvelope = document.getElementById("lastEnvelope");
+const birthdayCardFinal = document.getElementById("birthdayCardFinal");
+if (lastEnvelope && birthdayCardFinal) {
+  let finalOpened = false;
+  lastEnvelope.addEventListener("click", () => {
+    if (finalOpened) return;
+    finalOpened = true;
+    lastEnvelope.classList.add("open");
+
+    // Let the card visibly rise from the envelope first.
+    setTimeout(() => {
+      birthdayCardFinal.classList.add("show");
+      setTimeout(() => {
+        birthdayCardFinal.scrollIntoView({behavior:"smooth", block:"center"});
+      }, 180);
+    }, 1100);
+  });
+}

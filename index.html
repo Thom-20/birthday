@@ -2,141 +2,350 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f6eee9" />
-  <title>Pentru Ana-Maria ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5ebe8" />
+  <title>For You ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="intro-open">
+<body class="locked">
 
-  <section class="envelope-intro" id="envelopeIntro" aria-label="Surpriză pentru Ana-Maria">
-    <div class="intro-copy">
-      <p class="intro-small">Pentru Ana-Maria ❤️</p>
-      <h1>O mică surpriză pentru tine!</h1>
-      <p class="tap-label">Apasă pe plic</p>
+  <!-- OPENING -->
+  <section class="opening" id="opening">
+    <div class="ambient a1"></div>
+    <div class="ambient a2"></div>
+
+    <div class="opening-copy">
+      <span>just a little something</span>
+      <h1>for you.</h1>
     </div>
 
-    <button class="envelope-button" id="envelopeButton" type="button" aria-label="Deschide plicul">
-      <div class="envelope-wrap">
-        <div class="letter-card">
-          <span>For you</span>
-          <small>❤️</small>
+    <button class="envelope-button" id="envelopeButton" aria-label="Open envelope">
+      <div class="envelope">
+        <div class="paper">
+          <div class="paper-inner">
+            <span class="paper-small">a little note</span>
+            <strong>For You!</strong>
+            <span class="paper-heart">♥</span>
+          </div>
         </div>
 
         <div class="env-back"></div>
         <div class="env-flap"></div>
 
         <div class="env-front">
-          <div class="env-left"></div>
-          <div class="env-right"></div>
-          <div class="env-bottom"></div>
+          <div class="fold fold-left"></div>
+          <div class="fold fold-right"></div>
+          <div class="fold fold-bottom"></div>
         </div>
 
-        <div class="wax-seal">♥</div>
+        <div class="seal"><span>♥</span></div>
       </div>
     </button>
 
-    <p class="intro-bottom">something special is waiting...</p>
+    <p class="tap">tap the envelope</p>
   </section>
 
-  <div class="site-content" id="siteContent" aria-hidden="true">
-    <header class="hero" id="top">
+  <!-- STORY -->
+  <main class="experience" id="experience" aria-hidden="true">
+
+    <section class="scene hero-scene" id="top">
       <div class="floating-hearts" aria-hidden="true">
         <span>♡</span><span>♡</span><span>♡</span><span>♡</span><span>♡</span>
       </div>
 
-      <div class="hero-card reveal">
-        <p class="eyebrow">07 · 09 · 2002</p>
-        <h1>Ana-Maria</h1>
-        <p class="hero-subtitle">Happy 24th Birthday ❤️</p>
-        <p class="hero-note">I made a little place on the internet just for you.</p>
-        <a class="primary-btn" href="#story">Open your birthday surprise ✨</a>
+      <div class="birthday-card reveal">
+        <p class="kicker">07 · 09 · 2002</p>
+        <h2 class="name-title">Ana-Maria</h2>
+        <p class="birthday-subtitle">Happy 24th Birthday ❤️</p>
+        <p class="birthday-note">I made a little place on the internet just for you.</p>
+
+        <button class="primary-button" data-next="#memory">
+          Open your birthday surprise ✨
+        </button>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="section story" id="story">
-        <div class="section-heading reveal">
-          <p class="eyebrow">22 · 03 · 2025</p>
-          <h2>Our story</h2>
-          <p class="muted">The day “you and me” became “us”.</p>
+    <section class="scene memory-scene" id="memory">
+      <div class="scene-content">
+        <p class="kicker reveal">our little story</p>
+        <h2 class="reveal">Some days become<br><em>memories forever.</em></h2>
+
+        <div class="photo-frame reveal">
+          <div class="photo-placeholder">
+            <span>your favorite photo here</span>
+          </div>
+          <p>22 · 03 · 2025</p>
         </div>
 
-        <div class="story-grid">
-          <div class="photo-card reveal">
-            <div class="photo-placeholder"><span>Our photo</span></div>
-            <p class="photo-caption">A favorite memory of us.</p>
-          </div>
+        <p class="story-copy reveal">
+          Of all the places I could have ended up,<br>
+          I’m grateful life brought me to you.
+        </p>
+      </div>
+    </section>
 
-          <div class="counter-card reveal">
-            <p class="small-label">Together for</p>
-            <div class="counter">
-              <div><strong id="years">0</strong><span>years</span></div>
-              <div><strong id="months">0</strong><span>months</span></div>
-              <div><strong id="days">0</strong><span>days</span></div>
+    <section class="scene reasons-scene">
+      <div class="scene-content">
+        <p class="kicker reveal">a few things I love</p>
+        <h2 class="reveal">You make life feel<br><em>softer.</em></h2>
+
+        <div class="reasons">
+          <button class="reason-card reveal">
+            <span class="reason-number">01</span>
+            <span class="reason-front">tap me</span>
+            <span class="reason-back">The way your smile changes the whole mood of a room.</span>
+          </button>
+          <button class="reason-card reveal">
+            <span class="reason-number">02</span>
+            <span class="reason-front">tap me</span>
+            <span class="reason-back">How safe and peaceful ordinary moments feel with you.</span>
+          </button>
+          <button class="reason-card reveal">
+            <span class="reason-number">03</span>
+            <span class="reason-front">tap me</span>
+            <span class="reason-back">Because somehow, even the smallest memories with you matter.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene wish-scene">
+      <div class="scene-content reveal">
+        <p class="kicker">for your new year</p>
+        <h2>I hope life gives you<br><em>beautiful things.</em></h2>
+
+        <p class="wish">
+          More reasons to smile.<br>
+          More places to discover.<br>
+          More nights we never want to end.<br>
+          And more moments that feel like home.
+        </p>
+
+        <div class="tiny-heart">♥</div>
+      </div>
+    </section>
+
+    
+    <section class="scene gallery-scene" id="photos">
+      <div class="scene-content gallery-content">
+        <p class="kicker reveal">24 years · 24 moments</p>
+        <h2 class="reveal">24 little pieces<br><em>of you.</em></h2>
+        <p class="gallery-intro reveal">
+          One photo for every year that made you the person I love today.
+        </p>
+
+        <!-- Pentru fiecare poză, înlocuiește conținutul din .mini-photo-box cu: <img src="photos/01.jpg" alt=""> -->
+        <div class="photo-grid">
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">01</span>
+              <span class="photo-label">photo 1</span>
             </div>
-            <p class="muted tiny">and counting… ❤️</p>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">02</span>
+              <span class="photo-label">photo 2</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">03</span>
+              <span class="photo-label">photo 3</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">04</span>
+              <span class="photo-label">photo 4</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">05</span>
+              <span class="photo-label">photo 5</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">06</span>
+              <span class="photo-label">photo 6</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">07</span>
+              <span class="photo-label">photo 7</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">08</span>
+              <span class="photo-label">photo 8</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">09</span>
+              <span class="photo-label">photo 9</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">10</span>
+              <span class="photo-label">photo 10</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">11</span>
+              <span class="photo-label">photo 11</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">12</span>
+              <span class="photo-label">photo 12</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">13</span>
+              <span class="photo-label">photo 13</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">14</span>
+              <span class="photo-label">photo 14</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">15</span>
+              <span class="photo-label">photo 15</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">16</span>
+              <span class="photo-label">photo 16</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">17</span>
+              <span class="photo-label">photo 17</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">18</span>
+              <span class="photo-label">photo 18</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">19</span>
+              <span class="photo-label">photo 19</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">20</span>
+              <span class="photo-label">photo 20</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">21</span>
+              <span class="photo-label">photo 21</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">22</span>
+              <span class="photo-label">photo 22</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">23</span>
+              <span class="photo-label">photo 23</span>
+            </div>
+          </figure>
+          <figure class="mini-photo reveal">
+            <div class="mini-photo-box">
+              <span class="photo-number">24</span>
+              <span class="photo-label">photo 24</span>
+            </div>
+          </figure>
+        </div>
+
+        <p class="gallery-ending reveal">
+          24 years of you.<br>
+          And I hope I get to be there for so many more. ♥
+        </p>
+      </div>
+    </section>
+
+    <section class="scene final-envelope-scene" id="final-surprise">
+      <div class="scene-content final-envelope-content">
+        <p class="kicker reveal">one last thing</p>
+        <h2 class="reveal">There’s one last thing<br><em>I want you to read.</em></h2>
+        <p class="final-tap-hint reveal">tap the envelope</p>
+
+        <button class="last-envelope reveal" id="lastEnvelope" type="button" aria-label="Open final birthday card">
+          <div class="last-envelope-shell">
+            <div class="last-env-back"></div>
+
+            <div class="last-card-paper">
+              <div class="last-card-preview">
+                <span>for my favorite girl</span>
+                <strong>Happy 24th<br>Birthday! ♥</strong>
+              </div>
+            </div>
+
+            <div class="last-env-flap"></div>
+
+            <div class="last-env-front">
+              <div class="last-fold last-left"></div>
+              <div class="last-fold last-right"></div>
+              <div class="last-fold last-bottom"></div>
+            </div>
+
+            <div class="last-seal">♥</div>
           </div>
-        </div>
-      </section>
-
-      <section class="section reasons">
-        <div class="section-heading reveal">
-          <p class="eyebrow">24 years · 24 little reasons</p>
-          <h2>24 things I love about you</h2>
-          <p class="muted">Tap each heart to reveal a reason.</p>
-        </div>
-        <div class="heart-grid" id="heartGrid"></div>
-      </section>
-
-      <section class="section surprise">
-        <div class="section-heading reveal">
-          <p class="eyebrow">One more thing…</p>
-          <h2>Did you really think that was everything?</h2>
-        </div>
-
-        <button class="gift reveal" id="giftBtn" type="button" aria-label="Open the gift">
-          <span class="gift-lid"></span>
-          <span class="gift-box"></span>
-          <span class="gift-ribbon"></span>
         </button>
 
-        <div class="gift-message" id="giftMessage">
-          <p class="eyebrow">Your surprise</p>
-          <h3>Something special is waiting for you 🎁</h3>
-          <p>We’ll decide together what goes here.</p>
-        </div>
-      </section>
+        <article class="birthday-card-final" id="birthdayCardFinal">
+          <div class="birthday-card-inner">
+            <div class="final-card-top">for my favorite girl</div>
+            <div class="final-card-heart">♥</div>
+            <h3>Happy 24th<br><em>Birthday!</em></h3>
+            <div class="final-card-divider"><span>♥</span></div>
+            <p>
+              I hope your 24th year is full of beautiful moments,
+              unforgettable memories and all the happiness you deserve.
+            </p>
+            <p>
+              Thank you for being you, and for making my world
+              a little more beautiful every day.
+            </p>
+            <div class="final-card-signature">
+              With all my love,<br>
+              <strong>Andrei</strong> ♥
+            </div>
+            <div class="final-card-date">07 · 09 · 2026</div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <section class="section letter">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Last page</p>
-          <h2>There’s one last thing I want you to read.</h2>
-        </div>
-
-        <button class="final-envelope reveal" id="finalEnvelopeBtn" type="button" aria-label="Open letter">
-          <div class="final-env-back"></div>
-          <div class="final-letter-paper">For Ana-Maria ❤️</div>
-          <div class="final-env-front"></div>
-        </button>
-
-        <div class="final-letter" id="finalLetter">
-          <p class="eyebrow">My letter to you</p>
-          <h3>Dear Ana-Maria,</h3>
-          <p>Placeholder — this is where your personal birthday letter will go.</p>
-          <p class="signature">— Andrei ❤️</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>22.03.2025 — ∞</p>
-      <a href="#top">Back to the beginning ↑</a>
-    </footer>
-  </div>
+</main>
 
   <script src="script.js"></script>
 </body>
