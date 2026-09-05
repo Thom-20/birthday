@@ -102,11 +102,6 @@ a{color:inherit;text-decoration:none}
   width:100%;
   height:100%;
   filter:drop-shadow(0 28px 36px rgba(80,47,47,.24));
-  transform:scale(1);
-  transition:transform .65s cubic-bezier(.2,.9,.2,1);
-}
-.envelope-button.opened .envelope-wrap{
-  transform:scale(1.12);
 }
 .env-back{
   position:absolute;
@@ -479,9 +474,6 @@ footer{
 @media(max-width:430px){
   .envelope-button{
     width:96vw;
-  }
-  .envelope-button.opened .envelope-wrap{
-    transform:scale(1.08);
   }
   .letter-card{
     left:7%;

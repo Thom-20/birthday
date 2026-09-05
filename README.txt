@@ -1,1 +1,1 @@
-v6: corecție pentru telefon. Clapeta plicului se deschide cu animație 2D compatibilă iPhone/Android, apoi iese scrisoarea.
+v7: eliminat efectul de mărire a plicului. Plicul rămâne la aceeași dimensiune; se deschide clapeta și iese scrisoarea.
