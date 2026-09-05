@@ -1,1 +1,1 @@
-Versiunea v3: ecran de intrare cu plic animat. Apasă pe plic -> sigiliul dispare -> clapeta se deschide -> scrisoarea iese -> apare site-ul.
+v4: plic mai mare; la apăsare se mărește, se deschide, scrisoarea iese mult în sus, rămâne vizibilă puțin, apoi apare site-ul.
