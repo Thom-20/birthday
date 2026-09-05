@@ -515,3 +515,54 @@ footer{
     scroll-behavior:auto!important;
   }
 }
+
+
+/* v10 — mobile-only envelope fix */
+@media (max-width: 600px) {
+  .envelope-button,
+  .envelope-wrap {
+    overflow: visible !important;
+  }
+
+  /* Keep the envelope fixed in size on mobile */
+  .envelope-wrap,
+  .envelope-button.opened .envelope-wrap,
+  .envelope-button.reading .envelope-wrap {
+    transform: none !important;
+  }
+
+  /* Open the flap clearly upward on mobile */
+  .env-flap {
+    transform-origin: 50% 0% !important;
+    transition: transform .72s cubic-bezier(.22,.8,.22,1), opacity .25s ease !important;
+    will-change: transform;
+  }
+
+  .envelope-button.opened .env-flap,
+  .envelope-button.reading .env-flap {
+    transform: translateY(-68%) scaleY(-1) !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+
+  /* Letter stays exactly the same size: no zoom */
+  .letter-card {
+    transform: translateY(58%) !important;
+    transition: transform 1.05s cubic-bezier(.18,.86,.2,1) .28s,
+                opacity .4s ease .22s !important;
+    opacity: 0 !important;
+    will-change: transform;
+  }
+
+  /* Pull the letter almost completely out of the envelope */
+  .envelope-button.opened .letter-card {
+    transform: translateY(-48%) !important;
+    opacity: 1 !important;
+  }
+
+  /* Stop the letter halfway out of the envelope */
+  .envelope-button.reading .letter-card {
+    transform: translateY(-48%) !important;
+    opacity: 1 !important;
+  }
+}

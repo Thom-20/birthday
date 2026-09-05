@@ -1,1 +1,1 @@
-Versiunea v3: ecran de intrare cu plic animat. Apasă pe plic -> sigiliul dispare -> clapeta se deschide -> scrisoarea iese -> apare site-ul.
+v11: pe telefon, foaia iese doar pe jumătate din plic și se oprește acolo. Fără zoom. Desktopul rămâne neschimbat.
