@@ -1,1 +1,1 @@
-v13: păstrează animația v12 și adaugă colțuri mai rotunjite inclusiv clapetei de sus care se deschide.
+v14: corectate în cod colțurile superioare încercuite ale plicului și făcut fontul mai închis atât pe intro, cât și pe pagina care apare după deschidere.

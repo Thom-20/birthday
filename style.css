@@ -572,3 +572,88 @@ footer{
 .env-flap{
   border-radius:28px 28px 16px 16px;
 }
+
+
+/* v14 — corner fix + darker typography */
+
+/* Darker text on the intro AND on the page revealed afterwards */
+:root{
+  --text:#171313;
+  --muted:#514543;
+  --accent:#7d252d;
+}
+
+.intro-copy h1,
+.hero h1,
+.section h2,
+.section h3,
+.letter-card h2,
+.final-letter h3{
+  color:#171313 !important;
+}
+
+.tap-label,
+.intro-bottom,
+.hero-note,
+.muted,
+.small-label,
+.photo-caption,
+.counter span{
+  color:#514543 !important;
+}
+
+.intro-small,
+.eyebrow{
+  color:#7d252d !important;
+}
+
+/*
+  The circled corners in the screenshot come from the triangular side
+  layers protruding above the rounded body. Clip those layers to the
+  same rounded envelope silhouette.
+*/
+.env-front{
+  overflow:hidden !important;
+  border-radius:30px !important;
+}
+
+/* Keep the side triangles fully inside the envelope body */
+.env-left,
+.env-right,
+.env-bottom{
+  overflow:hidden !important;
+}
+
+/* Cleaner upper corners of the closed envelope */
+.env-left{
+  clip-path:polygon(0 3%,52% 54%,0 100%) !important;
+}
+
+.env-right{
+  clip-path:polygon(100% 3%,48% 54%,100% 100%) !important;
+}
+
+/* The opening flap itself gets softer upper corners */
+.env-flap{
+  border-radius:30px 30px 18px 18px !important;
+}
+
+/* Mobile: make sure nothing sticks out at the two top corners */
+@media(max-width:600px){
+  .env-front{
+    border-radius:30px !important;
+    clip-path:inset(0 round 30px) !important;
+  }
+
+  .env-left{
+    clip-path:polygon(0 4%,52% 54%,0 100%) !important;
+  }
+
+  .env-right{
+    clip-path:polygon(100% 4%,48% 54%,100% 100%) !important;
+  }
+
+  .env-flap{
+    border-radius:30px 30px 20px 20px !important;
+  }
+}
