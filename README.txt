@@ -1,1 +1,1 @@
-v7: eliminat efectul de mărire a plicului. Plicul rămâne la aceeași dimensiune; se deschide clapeta și iese scrisoarea.
+v8: eliminat complet zoom-ul scrisorii. Foaia albă iese doar în sus, păstrând aceeași dimensiune.
