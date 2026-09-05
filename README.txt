@@ -1,1 +1,1 @@
-v12: aceeași animație ca v11, cu colțurile scrisorii și ale plicului mai rotunjite.
+v13: păstrează animația v12 și adaugă colțuri mai rotunjite inclusiv clapetei de sus care se deschide.

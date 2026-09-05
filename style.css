@@ -566,3 +566,9 @@ footer{
     opacity: 1 !important;
   }
 }
+
+
+/* v13 — softer rounded opening flap */
+.env-flap{
+  border-radius:28px 28px 16px 16px;
+}
