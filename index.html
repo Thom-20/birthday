@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f9f4ef" />
+  <title>For Ana-Maria ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="hero" id="top">
+    <div class="floating-hearts" aria-hidden="true">
+      <span>♡</span><span>♡</span><span>♡</span><span>♡</span><span>♡</span>
+    </div>
+    <div class="hero-card reveal">
+      <h1>Ana-Maria</h1>
+      <p class="hero-subtitle">Happy 24th Birthday ❤️</p>
+      <p class="hero-note">I made a little place on the internet just for you.</p>
+      <a class="primary-btn" href="#story">Open your birthday surprise ✨</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section story" id="story">
+      <div class="section-heading reveal">
+        <h2>Our story</h2>
+        <p class="muted">A început pe 22 · 03 · 2025</p>
+      </div>
+
+      <div class="story-grid">
+        <div class="photo-card reveal">
+          <div class="photo-placeholder">
+            <span>Our photo</span>
+          </div>
+          <p class="photo-caption">A favorite memory of us.</p>
+        </div>
+
+        <div class="counter-card reveal">
+          <p class="small-label">Together for</p>
+          <div class="counter" id="relationshipCounter">
+            <div><strong id="years">0</strong><span>years</span></div>
+            <div><strong id="months">0</strong><span>months</span></div>
+            <div><strong id="days">0</strong><span>days</span></div>
+          </div>
+          <p class="muted tiny">and counting… ❤️</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section memories">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Little moments</p>
+        <h2>Somewhere between then and now…</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span class="dot"></span>
+          <div>
+            <p class="timeline-date">Memory #1</p>
+            <h3>Our first photo</h3>
+            <p>Placeholder text — we’ll personalize this later.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="dot"></span>
+          <div>
+            <p class="timeline-date">Memory #2</p>
+            <h3>Our first trip</h3>
+            <p>Placeholder text — we’ll personalize this later.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="dot"></span>
+          <div>
+            <p class="timeline-date">Memory #3</p>
+            <h3>A moment I’ll never forget</h3>
+            <p>Placeholder text — we’ll personalize this later.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="dot"></span>
+          <div>
+            <p class="timeline-date">Today</p>
+            <h3>Happy Birthday ❤️</h3>
+            <p>And the story keeps going.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reasons">
+      <div class="section-heading reveal">
+        <p class="eyebrow">24 years · 24 little reasons</p>
+        <h2>24 things I love about you</h2>
+        <p class="muted">Tap each heart to reveal a reason.</p>
+      </div>
+      <div class="heart-grid" id="heartGrid"></div>
+    </section>
+
+    <section class="section song">
+      <div class="song-card reveal">
+        <div>
+          <p class="eyebrow">Our song</p>
+          <h2>This song makes me think of you</h2>
+          <p class="muted">We’ll add your song here later.</p>
+        </div>
+        <button class="secondary-btn" type="button" onclick="alert('We’ll connect this button to your song 🎵')">Play our song ♫</button>
+      </div>
+    </section>
+
+    <section class="section surprise">
+      <div class="section-heading reveal">
+        <p class="eyebrow">One more thing…</p>
+        <h2>Did you really think that was everything?</h2>
+      </div>
+
+      <button class="gift reveal" id="giftBtn" aria-label="Open the gift">
+        <span class="gift-lid"></span>
+        <span class="gift-box"></span>
+        <span class="gift-ribbon"></span>
+      </button>
+
+      <div class="gift-message" id="giftMessage">
+        <p class="eyebrow">Your surprise</p>
+        <h3>Something special is waiting for you 🎁</h3>
+        <p>We’ll decide together what goes here.</p>
+      </div>
+    </section>
+
+    <section class="section letter">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Last page</p>
+        <h2>There’s one last thing I want you to read.</h2>
+      </div>
+
+      <button class="envelope reveal" id="envelopeBtn" aria-label="Open letter">
+        <div class="envelope-back"></div>
+        <div class="letter-paper">For Ana-Maria ❤️</div>
+        <div class="envelope-front"></div>
+      </button>
+
+      <div class="final-letter" id="finalLetter">
+        <p class="eyebrow">My letter to you</p>
+        <h3>Dear Ana-Maria,</h3>
+        <p>Placeholder — this is where your personal birthday letter will go.</p>
+        <p>We’ll write this together after the site design is finished.</p>
+        <p class="signature">— Andrei ❤️</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>22.03.2025 — ∞</p>
+    <a href="#top">Back to the beginning ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
