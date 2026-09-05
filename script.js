@@ -8,14 +8,26 @@ envelopeButton.addEventListener("click", () => {
   if (opening) return;
   opening = true;
 
-  envelopeButton.classList.add("opened");
+  // 1. Sigiliul dispare
+  envelopeButton.classList.add("seal-open");
 
+  // 2. Clapeta se ridică, fără zoom
+  setTimeout(() => {
+    envelopeButton.classList.add("flap-open");
+  }, 180);
+
+  // 3. Scrisoarea iese drept în sus, la aceeași dimensiune
+  setTimeout(() => {
+    envelopeButton.classList.add("letter-out");
+  }, 720);
+
+  // 4. Intră în pagina principală
   setTimeout(() => {
     intro.classList.add("finished");
     site.classList.add("show");
     site.setAttribute("aria-hidden", "false");
     document.body.classList.remove("intro-open");
-  }, 1550);
+  }, 1950);
 });
 
 const startDate = new Date(2025, 2, 22);

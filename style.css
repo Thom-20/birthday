@@ -116,7 +116,6 @@ a{color:inherit;text-decoration:none}
   background:transparent;
   padding:0;
   cursor:pointer;
-  perspective:1200px;
   z-index:2;
   -webkit-tap-highlight-color:transparent;
 }
@@ -130,11 +129,6 @@ a{color:inherit;text-decoration:none}
   width:100%;
   height:100%;
   filter:drop-shadow(0 22px 32px rgba(80,47,47,.22));
-  transform:translateY(0);
-  transition:transform .35s ease;
-}
-.envelope-button:active .envelope-wrap{
-  transform:translateY(3px) scale(.995);
 }
 .env-back{
   position:absolute;
@@ -151,10 +145,12 @@ a{color:inherit;text-decoration:none}
   height:48%;
   background:linear-gradient(180deg,#f1d8d2,#e4beb7);
   clip-path:polygon(0 0,100% 0,50% 100%);
-  transform-origin:top center;
   z-index:5;
-  transition:transform .85s cubic-bezier(.2,.8,.2,1), z-index 0s linear .4s;
-  backface-visibility:hidden;
+  transition:
+    clip-path .62s cubic-bezier(.22,.7,.22,1),
+    top .62s cubic-bezier(.22,.7,.22,1),
+    opacity .25s ease;
+  will-change:clip-path,top;
 }
 .env-front{
   position:absolute;
@@ -200,7 +196,10 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 10px 30px rgba(96,63,60,.08);
   z-index:2;
   transform:translateY(18%);
-  transition:transform .95s cubic-bezier(.2,.8,.2,1) .22s;
+  opacity:0;
+  transition:
+    transform .82s cubic-bezier(.22,.72,.22,1),
+    opacity .26s ease;
   color:#8e5d60;
   font-family:"Cormorant Garamond",serif;
   font-size:clamp(1.8rem,7vw,2.7rem);
@@ -231,20 +230,21 @@ a{color:inherit;text-decoration:none}
     inset 0 2px 4px rgba(255,255,255,.25),
     inset 0 -5px 8px rgba(74,25,32,.28),
     0 8px 18px rgba(89,38,45,.28);
-  transition:opacity .28s ease, transform .38s ease;
+  transition:opacity .22s ease;
 }
 
-/* Open state */
-.envelope-button.opened .wax-seal{
+/* Open state — no zoom, mobile-safe */
+.envelope-button.seal-open .wax-seal{
   opacity:0;
-  transform:translate(-50%,-50%) scale(.45) rotate(-12deg);
 }
-.envelope-button.opened .env-flap{
-  transform:rotateX(180deg);
-  z-index:0;
+.envelope-button.flap-open .env-flap{
+  top:-30%;
+  clip-path:polygon(0 100%,100% 100%,50% 0);
+  z-index:1;
 }
-.envelope-button.opened .letter-card{
+.envelope-button.letter-out .letter-card{
   transform:translateY(-52%);
+  opacity:1;
 }
 
 /* ===== MAIN SITE ===== */
