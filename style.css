@@ -1117,3 +1117,56 @@ button:focus-visible{outline:2px solid var(--rose);outline-offset:5px}
     columns: 3;
   }
 }
+
+/* MOBILE GALLERY STRUCTURE V2 — two independent columns in natural reading order */
+.photo-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  columns: initial !important;
+  align-items: start;
+}
+.photo-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+.photo-column .mini-photo {
+  display: block !important;
+  width: 100%;
+  margin: 0 !important;
+  break-inside: auto;
+}
+/* Keep a light handmade rhythm without disturbing the masonry */
+.photo-column:first-child .mini-photo:nth-child(odd) { transform: rotate(-0.65deg) !important; }
+.photo-column:first-child .mini-photo:nth-child(even) { transform: rotate(0.45deg) !important; }
+.photo-column:last-child .mini-photo:nth-child(odd) { transform: rotate(0.55deg) !important; }
+.photo-column:last-child .mini-photo:nth-child(even) { transform: rotate(-0.4deg) !important; }
+
+/* Favorite memory: stable on iPhone and never dependent on reveal observer */
+.memory-scene .scene-content > .reveal,
+.memory-scene .photo-frame.reveal,
+.memory-scene .story-copy.reveal {
+  opacity: 1;
+  transform: none;
+}
+.memory-scene .photo-frame {
+  width: min(84vw, 350px);
+}
+.memory-scene .photo-placeholder {
+  aspect-ratio: auto;
+  background: #eadbd7;
+}
+.memory-scene .photo-placeholder img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (min-width: 480px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
