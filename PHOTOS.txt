@@ -1,0 +1,10 @@
+24 PHOTOS
+
+Trimite-mi cele 24 de poze și le pot pune eu în ordine.
+
+Dacă vrei să le adaugi manual:
+- pune imaginile în folderul photos/
+- numește-le 01.jpg, 02.jpg ... 24.jpg
+- în index.html, fiecare placeholder poate fi înlocuit cu:
+  <img src="photos/01.jpg" alt="">
+și așa mai departe.

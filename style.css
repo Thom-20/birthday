@@ -346,6 +346,40 @@ button:focus-visible{outline:2px solid var(--rose);outline-offset:5px}
 .floating-hearts span:nth-child(5){left:49%;top:7%;animation-delay:-3s}
 @keyframes floatHeart{50%{transform:translateY(-16px) rotate(7deg)}}
 
+
+.scroll-hint {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-transform: lowercase;
+  letter-spacing: 0.2em;
+  font-size: 9px;
+  color: #927a75;
+}
+
+.scroll-arrow {
+  font-size: 20px;
+  animation: scrollArrow 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollArrow {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+
+
+
+
 /* memory */
 .memory-scene{background:#f8f1ed}
 .photo-frame{
@@ -1018,3 +1052,68 @@ button:focus-visible{outline:2px solid var(--rose);outline-offset:5px}
 /* V8 fallback: final envelope itself must always be visible */
 .last-envelope.reveal{opacity:1;transform:none}
 .final-tap-hint.reveal{opacity:1;transform:none}
+
+
+/* PHOTO UPDATE — keep every image visible in its natural proportion */
+.photo-placeholder {
+  overflow: hidden;
+}
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+/* Masonry-style mobile gallery: no forced crop */
+.photo-grid {
+  display: block !important;
+  columns: 2;
+  column-gap: 12px;
+  width: 100%;
+}
+.mini-photo {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 14px !important;
+  padding: 7px 7px 11px;
+  break-inside: avoid;
+  vertical-align: top;
+  transform: none !important;
+}
+.mini-photo:nth-child(4n+1) { transform: rotate(-0.8deg) !important; }
+.mini-photo:nth-child(4n+2) { transform: rotate(0.65deg) !important; }
+.mini-photo:nth-child(4n+3) { transform: rotate(-0.35deg) !important; }
+.mini-photo:nth-child(4n+4) { transform: rotate(0.8deg) !important; }
+
+.mini-photo-box {
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+  background: #eadbd7;
+}
+.mini-photo-box img {
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block;
+}
+.photo-number {
+  left: 9px !important;
+  top: 8px !important;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: rgba(255,250,246,.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: rgba(74,49,50,.72) !important;
+  font-size: 16px !important;
+  line-height: 1;
+}
+@media (min-width: 480px) {
+  .photo-grid {
+    columns: 3;
+  }
+}
