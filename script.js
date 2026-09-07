@@ -58,54 +58,76 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
 
-// Final birthday card envelope — auto-scroll so the animation stays visible on phone
+// Final birthday card envelope — tap once to open, tap again to close.
 const lastEnvelope = document.getElementById("lastEnvelope");
 const birthdayCardFinal = document.getElementById("birthdayCardFinal");
 
 if (lastEnvelope && birthdayCardFinal) {
   let finalOpened = false;
+  let finalAnimating = false;
+
+  lastEnvelope.setAttribute("aria-expanded", "false");
 
   lastEnvelope.addEventListener("click", () => {
-    if (finalOpened) return;
-    finalOpened = true;
+    if (finalAnimating) return;
+    finalAnimating = true;
 
-    // Open the envelope immediately.
-    lastEnvelope.classList.add("open");
+    if (!finalOpened) {
+      // OPEN: flap first, then the card rises and the full message appears.
+      finalOpened = true;
+      lastEnvelope.classList.add("open");
+      lastEnvelope.setAttribute("aria-expanded", "true");
 
-    // As the card begins to rise, move the viewport down so the lower half
-    // of the envelope and the emerging card remain visible.
-    setTimeout(() => {
-      const rect = lastEnvelope.getBoundingClientRect();
-      const targetTop =
-        window.scrollY +
-        rect.top +
-        rect.height * 0.33 -
-        window.innerHeight * 0.22;
-
-      window.scrollTo({
-        top: Math.max(0, targetTop),
-        behavior: "smooth"
-      });
-    }, 360);
-
-    // Reveal the full birthday card.
-    setTimeout(() => {
-      birthdayCardFinal.classList.add("show");
-
-      // After it expands, scroll again to place the greeting comfortably
-      // inside the phone viewport.
+      // Keep the envelope animation visible on a phone screen.
       setTimeout(() => {
-        const cardRect = birthdayCardFinal.getBoundingClientRect();
+        const rect = lastEnvelope.getBoundingClientRect();
         const targetTop =
           window.scrollY +
-          cardRect.top -
-          Math.max(26, window.innerHeight * 0.08);
+          rect.top +
+          rect.height * 0.33 -
+          window.innerHeight * 0.22;
 
         window.scrollTo({
           top: Math.max(0, targetTop),
           behavior: "smooth"
         });
-      }, 420);
-    }, 1200);
+      }, 360);
+
+      setTimeout(() => {
+        birthdayCardFinal.classList.add("show");
+
+        setTimeout(() => {
+          const cardRect = birthdayCardFinal.getBoundingClientRect();
+          const targetTop =
+            window.scrollY +
+            cardRect.top -
+            Math.max(26, window.innerHeight * 0.08);
+
+          window.scrollTo({
+            top: Math.max(0, targetTop),
+            behavior: "smooth"
+          });
+        }, 420);
+      }, 1200);
+
+      // Unlock only after the opening sequence has finished.
+      setTimeout(() => {
+        finalAnimating = false;
+      }, 1850);
+    } else {
+      // CLOSE: hide the full message first, then let the small card slide
+      // back into the envelope before the flap closes.
+      finalOpened = false;
+      lastEnvelope.setAttribute("aria-expanded", "false");
+      birthdayCardFinal.classList.remove("show");
+
+      setTimeout(() => {
+        lastEnvelope.classList.remove("open");
+      }, 700);
+
+      setTimeout(() => {
+        finalAnimating = false;
+      }, 1550);
+    }
   });
 }

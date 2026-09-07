@@ -451,10 +451,11 @@ button:focus-visible{outline:2px solid var(--rose);outline-offset:5px}
   margin:25px 0 0;
   text-align:center;
   color:#8c7874;
-  text-transform:uppercase;
+  text-transform:lowercase;
   letter-spacing:.2em;
   font-size:8px;
   transition:opacity .35s ease,transform .35s ease;
+  animation:breathe 2s ease-in-out infinite;
 }
 .reason-back{
   display:block;
